@@ -1,0 +1,6 @@
+.next
+.env
+.prettierignore
+node_modules
+yarn.lock
+public
