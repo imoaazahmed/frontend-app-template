@@ -1,14 +1,11 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import { Box, Link } from '@elements';
 
 export default function HomeScreen() {
   return (
-    <div>
-      <div>Hello World!</div>
-
-      <Link href="/welcome">
-        <a>Go to welcome page</a>
-      </Link>
-    </div>
+    <Box>
+      <Box>Home Page</Box>
+      <Link href='/playground'>Go To Playground Page</Link>
+    </Box>
   );
 }

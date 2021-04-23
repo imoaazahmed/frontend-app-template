@@ -30,7 +30,8 @@
       "@styles/*": ["styles/*"],
       "@hooks/*": ["src/hooks/*"],
       "@redux/*": ["src/redux/*"],
-      "@screens/*": ["src/screens/*"]
+      "@screens/*": ["src/screens/*"],
+      "@elements": ["src/components/common/elements"]
     }
   },
   "include": [
