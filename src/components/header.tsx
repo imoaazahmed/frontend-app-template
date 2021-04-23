@@ -1,5 +1,5 @@
-import React from "react";
-import { useIsMobile } from "@hooks/useIsMobile";
+import React from 'react';
+import { useIsMobile } from '@hooks/useIsMobile';
 
 export default function Header() {
   const isMobile = useIsMobile();
