@@ -1,7 +1,8 @@
 module.exports = {
+  mode: 'jit',
   purge: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -11,8 +12,8 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    require("@tailwindcss/forms")({
-      strategy: "class",
+    require('@tailwindcss/forms')({
+      strategy: 'class',
     }),
   ],
 };
