@@ -7,6 +7,7 @@
 import React, { HTMLProps, forwardRef } from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import NextImage, { ImageProps as NextImageProps } from 'next/image';
+import { useRouter } from 'next/router';
 
 /*
  * Container
@@ -197,6 +198,21 @@ export function Link(props: LinkProps) {
       locale={locale}>
       <a {...rest}>{children}</a>
     </NextLink>
+  );
+}
+
+/*
+ * Active Link
+ */
+export function ActiveLink(props: LinkProps) {
+  const { href, className = '', children, ...rest } = props;
+  const { asPath } = useRouter();
+  const activeClassName = asPath === props.href ? 'active' : '';
+
+  return (
+    <Link href={href} className={`${activeClassName} ${className}`} {...rest}>
+      {children}
+    </Link>
   );
 }
 
