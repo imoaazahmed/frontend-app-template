@@ -31,7 +31,8 @@
       "@hooks/*": ["src/hooks/*"],
       "@redux/*": ["src/redux/*"],
       "@screens/*": ["src/screens/*"],
-      "@elements": ["src/components/common/elements"]
+      "@elements": ["src/components/common/elements"],
+      "@lib/*": ["src/lib/*"]
     }
   },
   "include": [
