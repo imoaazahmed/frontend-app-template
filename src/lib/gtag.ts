@@ -21,10 +21,12 @@ export const event = ({ action, category, label, value }: Event) => {
 
 // HOW TO USE
 // ----------
-// [1] - Import "gtag" into your component
+// [1] - Set your NEXT_PUBLIC_GA_ID in .env.local file
+//
+// [2] - Import "gtag" into your component
 // import * as gtag from '@lib/gtag'
 //
-// [2] - Call the event function when you do something
+// [3] - Call the event function when you do something
 // gtag.event({
 //     action: 'submit_form',
 //     category: 'Contact',
