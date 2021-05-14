@@ -48,7 +48,6 @@ export function Box(props: BoxProps): JSX.Element {
  */
 export type StackProps = HTMLProps<HTMLDivElement> & {
   gap?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | string;
-  inline?: boolean;
 };
 
 export function Stack(props: StackProps): JSX.Element {

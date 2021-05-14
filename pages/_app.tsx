@@ -3,6 +3,10 @@ import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import * as gtag from '@lib/gtag';
 
+// Redux
+import store from '@redux/store';
+import { Provider } from 'react-redux';
+
 // CSS
 import 'tailwindcss/tailwind.css';
 import '@styles/globals.css';
@@ -17,7 +21,11 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
     return () => router.events.off('routeChangeComplete', handleRouteChange);
   }, [router.events]);
 
-  return <Component {...pageProps} />;
+  return (
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
+  );
 }
 
 export default App;

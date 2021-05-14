@@ -13,7 +13,7 @@ export default function PlayGroundScreen(): JSX.Element {
   return (
     <Box>
       <Container>
-        <Stack className='mb-8' inline>
+        <Stack className='mb-8'>
           <Heading as='h1'>Heading</Heading>
           <Heading as='h2'>Heading</Heading>
           <Heading as='h3'>Heading</Heading>
