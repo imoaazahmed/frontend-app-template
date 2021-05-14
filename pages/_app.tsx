@@ -7,7 +7,7 @@ import * as gtag from '@lib/gtag';
 import 'tailwindcss/tailwind.css';
 import '@styles/globals.css';
 
-function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter();
 
   // Google Analytics

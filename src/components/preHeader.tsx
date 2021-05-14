@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function PreHeader() {
+export default function PreHeader(): JSX.Element | null {
   const [visible, setVisible] = useState(false);
 
   // Helpers

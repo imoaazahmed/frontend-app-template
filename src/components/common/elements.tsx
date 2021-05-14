@@ -12,9 +12,9 @@ import { useRouter } from 'next/router';
 /*
  * Container
  */
-export type ContainerProps = HTMLProps<HTMLDivElement> & {};
+export type ContainerProps = HTMLProps<HTMLDivElement>;
 
-export function Container(props: ContainerProps) {
+export function Container(props: ContainerProps): JSX.Element {
   const { children, className = '', ...rest } = props;
   return (
     <div className={`container mx-auto ${className}`} {...rest}>
@@ -26,9 +26,9 @@ export function Container(props: ContainerProps) {
 /*
  * Main
  */
-export type MainProps = HTMLProps<HTMLDivElement> & {};
+export type MainProps = HTMLProps<HTMLDivElement>;
 
-export function Main(props: MainProps) {
+export function Main(props: MainProps): JSX.Element {
   const { children, ...rest } = props;
   return <main {...rest}>{children}</main>;
 }
@@ -36,9 +36,9 @@ export function Main(props: MainProps) {
 /*
  * Box
  */
-export type BoxProps = HTMLProps<HTMLDivElement> & {};
+export type BoxProps = HTMLProps<HTMLDivElement>;
 
-export function Box(props: BoxProps) {
+export function Box(props: BoxProps): JSX.Element {
   const { children, ...rest } = props;
   return <div {...rest}>{children}</div>;
 }
@@ -51,8 +51,8 @@ export type StackProps = HTMLProps<HTMLDivElement> & {
   inline?: boolean;
 };
 
-export function Stack(props: StackProps) {
-  const { gap = 'md', inline, children, className = '', ...rest } = props;
+export function Stack(props: StackProps): JSX.Element {
+  const { gap = 'md', children, className = '', ...rest } = props;
 
   const gridGap = () => {
     switch (gap) {
@@ -81,9 +81,9 @@ export function Stack(props: StackProps) {
 /*
  * Text
  */
-export type TextProps = HTMLProps<HTMLParagraphElement> & {};
+export type TextProps = HTMLProps<HTMLParagraphElement>;
 
-export function Text(props: TextProps) {
+export function Text(props: TextProps): JSX.Element {
   const { children, ...rest } = props;
   return <p {...rest}>{children}</p>;
 }
@@ -95,7 +95,7 @@ type HeadingProps = HTMLProps<HTMLHeadingElement> & {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 };
 
-export function Heading(props: HeadingProps) {
+export function Heading(props: HeadingProps): JSX.Element {
   const { as: As = 'h1', children, className = '', ...rest } = props;
 
   const fontSize = () => {
@@ -127,12 +127,12 @@ export function Heading(props: HeadingProps) {
 /*
  * Table
  */
-export type TableProps = HTMLProps<HTMLTableElement> & {};
-export type TableSectionProps = HTMLProps<HTMLTableSectionElement> & {};
-export type TableRowProps = HTMLProps<HTMLTableRowElement> & {};
-export type TableCellProps = HTMLProps<HTMLTableCellElement> & {};
+export type TableProps = HTMLProps<HTMLTableElement>;
+export type TableSectionProps = HTMLProps<HTMLTableSectionElement>;
+export type TableRowProps = HTMLProps<HTMLTableRowElement>;
+export type TableCellProps = HTMLProps<HTMLTableCellElement>;
 
-export function Table(props: HTMLProps<HTMLTableElement>) {
+export function Table(props: HTMLProps<HTMLTableElement>): JSX.Element {
   const { children, ...rest } = props;
   return <table {...rest}>{children}</table>;
 }
@@ -172,7 +172,7 @@ Table.Data = (props: TableCellProps) => {
  */
 export type LinkProps = NextLinkProps & HTMLProps<HTMLAnchorElement>;
 
-export function Link(props: LinkProps) {
+export function Link(props: LinkProps): JSX.Element {
   const {
     href,
     passHref,
@@ -204,7 +204,7 @@ export function Link(props: LinkProps) {
 /*
  * Active Link
  */
-export function ActiveLink(props: LinkProps) {
+export function ActiveLink(props: LinkProps): JSX.Element {
   const { href, className = '', children, ...rest } = props;
   const { asPath } = useRouter();
   const activeClassName = asPath === props.href ? 'active' : '';
@@ -219,9 +219,9 @@ export function ActiveLink(props: LinkProps) {
 /*
  * Image
  */
-export type ImageProps = NextImageProps & {};
+export type ImageProps = NextImageProps;
 
-export function Image(props: ImageProps) {
+export function Image(props: ImageProps): JSX.Element {
   const { src = 'ss', ...rest } = props;
   return <NextImage src={src} {...rest} />;
 }
@@ -277,8 +277,8 @@ export type SelectProps = HTMLProps<HTMLSelectElement> & {
   options: OptionProps[];
 };
 
-export function Select(props: SelectProps) {
-  const { type = 'text', options, className = '', ...rest } = props;
+export function Select(props: SelectProps): JSX.Element {
+  const { options, className = '', ...rest } = props;
   return (
     <select className={`form-select ${className}`} {...rest}>
       {options.map((item) => (
@@ -325,7 +325,7 @@ export type RadioGroupProps = {
   children?: React.ReactNode;
 };
 
-export function RadioGroup(props: RadioGroupProps) {
+export function RadioGroup(props: RadioGroupProps): JSX.Element {
   const { label, children } = props;
   return (
     <div className='block'>
@@ -355,7 +355,7 @@ export type ButtonProps = {
   variant: 'primary' | 'secondary';
 };
 
-export function Button(props: ButtonProps) {
+export function Button(props: ButtonProps): JSX.Element {
   const { children, variant, ...rest } = props;
   return (
     <button className={variant} {...rest}>

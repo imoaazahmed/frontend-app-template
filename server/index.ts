@@ -27,6 +27,7 @@ app.prepare().then(() => {
 
   server.listen(port, (err?: string): void => {
     if (err) throw err as string;
+    // eslint-disable-next-line
     console.log(`> Ready on http://localhost:${port} as ${env}`);
   });
 });

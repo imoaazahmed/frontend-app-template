@@ -9,7 +9,7 @@ import {
   Input,
 } from '@elements';
 
-export default function PlayGroundScreen() {
+export default function PlayGroundScreen(): JSX.Element {
   return (
     <Box>
       <Container>

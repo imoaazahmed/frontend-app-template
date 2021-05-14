@@ -1,6 +1,6 @@
-import isMobile from "ismobilejs";
+import isMobile from 'ismobilejs';
 
-export function useIsMobile() {
-  if (typeof window === "undefined") return false;
+export function useIsMobile(): boolean {
+  if (typeof window === 'undefined') return false;
   return isMobile(window.navigator).phone;
 }

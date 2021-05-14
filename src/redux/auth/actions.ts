@@ -1,33 +1,17 @@
-// Types
+import { createAction, Dispatch } from '@reduxjs/toolkit';
 import {
   FETCH_AUTH_DATA_REQUEST,
   FETCH_AUTH_DATA_SUCCESS,
   FETCH_AUTH_DATA_FAILURE,
-} from "./types";
+} from './types';
 
 // Fetch Auth Data
-export const fetchAuthDataRequest = () => {
-  return {
-    type: FETCH_AUTH_DATA_REQUEST,
-  };
-};
-
-export const fetchAuthDataSuccess = (data: any) => {
-  return {
-    type: FETCH_AUTH_DATA_SUCCESS,
-    payload: data,
-  };
-};
-
-export const fetchAuthDataFailure = (error: any) => {
-  return {
-    type: FETCH_AUTH_DATA_FAILURE,
-    payload: error,
-  };
-};
+export const fetchAuthDataRequest = createAction(FETCH_AUTH_DATA_REQUEST);
+export const fetchAuthDataSuccess = createAction<any>(FETCH_AUTH_DATA_SUCCESS);
+export const fetchAuthDataFailure = createAction<any>(FETCH_AUTH_DATA_FAILURE);
 
 export const fetchAuthData = () => {
-  return async (dispatch: any) => {
+  return async (dispatch: Dispatch): Promise<void> => {
     try {
       dispatch(fetchAuthDataRequest());
 
