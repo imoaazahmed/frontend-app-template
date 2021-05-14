@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function BottomMessage() {
+export default function BottomMessage(): JSX.Element | null {
   const [visible, setVisible] = useState(false);
 
   // Helpers
@@ -9,7 +9,6 @@ export default function BottomMessage() {
   };
 
   if (!visible) return null;
-
   return (
     <div className='absolute bottom-0 w-full bg-blue-800 text-white p-4'>
       Bottom Message .... <button onClick={hideBottomMessage}>Close</button>

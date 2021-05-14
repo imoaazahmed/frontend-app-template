@@ -12,19 +12,17 @@ import PreHeader from '@components/preHeader';
 import BottomMessage from '@components/bottomMessage';
 import { Box } from '@elements';
 
-interface ContextValueTypes {}
-
-export const LayoutContext = createContext<ContextValueTypes | null>(null);
+export const LayoutContext = createContext<any>(null);
 
 interface PageProps {
   siteTitle?: string;
   children?: React.ReactNode;
 }
 
-export default function Page(props: PageProps) {
+export default function Page(props: PageProps): JSX.Element {
   const { SITENAME } = process.env;
   const { siteTitle = SITENAME, children } = props;
-  const contextValue: ContextValueTypes = {};
+  const contextValue: any = {};
 
   return (
     <LayoutContext.Provider value={contextValue}>

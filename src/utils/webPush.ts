@@ -3,11 +3,11 @@ import firebase from 'firebase/app';
 import localforage from 'localforage';
 
 const firebaseCloudMessaging = {
-  tokenInlocalforage: async () => {
+  tokenInlocalforage: async (): Promise<null> => {
     return localforage.getItem('fcm_token');
   },
 
-  init: async function () {
+  init: async function (): Promise<false | undefined> {
     firebase.initializeApp({
       apiKey: 'YOUR-API-KEY',
       projectId: 'YOUR-PROJECT-ID',
@@ -25,6 +25,7 @@ const firebaseCloudMessaging = {
       const token = await messaging.getToken();
 
       localforage.setItem('fcm_token', token);
+      // eslint-disable-next-line
       console.log('fcm_token', token);
     } catch (error) {
       console.error(error);

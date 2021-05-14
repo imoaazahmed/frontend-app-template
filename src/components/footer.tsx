@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIsMobile } from '@hooks/use-is-mobile';
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
   const isMobile = useIsMobile();
 
   // Mobile

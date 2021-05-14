@@ -1,2 +1,1 @@
-// Export Actions
-export * from "@redux/auth/actions";
+export * from '@redux/auth/actions';

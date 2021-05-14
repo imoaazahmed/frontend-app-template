@@ -17,7 +17,7 @@ export async function useCors(
   req: NextApiRequest,
   res: NextApiResponse,
   methods?: Methods[]
-) {
+): Promise<void> {
   // Initialize the cors middleware
   const cors = initMiddleware(
     // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
