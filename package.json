@@ -64,6 +64,7 @@
     "prettier": "^2.0.2",
     "react-hook-form": "^6.15.5",
     "react-redux": "^7.2.3",
+    "reactjs-slot-layout": "^1.0.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
