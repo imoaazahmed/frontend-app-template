@@ -33,8 +33,9 @@
       "@hooks/*": ["src/hooks/*"],
       "@redux/*": ["src/redux/*"],
       "@screens/*": ["src/screens/*"],
-      "@elements": ["src/components/common/elements"],
-      "@lib/*": ["src/lib/*"]
+      "@lib/*": ["src/lib/*"],
+      "@elements": ["src/components/elements"],
+      "@layout": ["src/layouts/config"]
     }
   },
   "exclude": ["node_modules", "dist", ".next", "out", "next.config.js", "test"],

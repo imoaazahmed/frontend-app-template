@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Box } from '@elements';
 
-export default function BottomMessage(): JSX.Element | null {
+export function BottomMessage(): JSX.Element | null {
   const [visible, setVisible] = useState(false);
 
   // Helpers
@@ -10,8 +11,8 @@ export default function BottomMessage(): JSX.Element | null {
 
   if (!visible) return null;
   return (
-    <div className='absolute bottom-0 w-full bg-blue-800 text-white p-4'>
+    <Box className='absolute bottom-0 w-full bg-blue-800 text-white p-4'>
       Bottom Message .... <button onClick={hideBottomMessage}>Close</button>
-    </div>
+    </Box>
   );
 }

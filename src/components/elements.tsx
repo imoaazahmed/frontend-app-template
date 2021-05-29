@@ -34,6 +34,26 @@ export function Main(props: MainProps): JSX.Element {
 }
 
 /*
+ * Header
+ */
+export type HeaderProps = HTMLProps<HTMLDivElement>;
+
+export function Header(props: HeaderProps): JSX.Element {
+  const { children, ...rest } = props;
+  return <header {...rest}>{children}</header>;
+}
+
+/*
+ * Footer
+ */
+export type FooterProps = HTMLProps<HTMLDivElement>;
+
+export function Footer(props: FooterProps): JSX.Element {
+  const { children, ...rest } = props;
+  return <footer {...rest}>{children}</footer>;
+}
+
+/*
  * Box
  */
 export type BoxProps = HTMLProps<HTMLDivElement>;
