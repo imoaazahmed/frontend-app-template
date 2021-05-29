@@ -1,13 +1,12 @@
-import Layout from '@components/common/layout';
-import Page from '@components/common/page';
+import { Page, Section } from '@layout';
 import HomeScreen from '@screens/home/screen';
 
 export default function Home(): JSX.Element {
   return (
-    <Layout>
-      <Page siteTitle='Home'>
+    <Page layout='one-column'>
+      <Section name='content'>
         <HomeScreen />
-      </Page>
-    </Layout>
+      </Section>
+    </Page>
   );
 }

@@ -12,7 +12,7 @@ import {
 export default function PlayGroundScreen(): JSX.Element {
   return (
     <Box>
-      <Container>
+      <Container className='p-4'>
         <Stack className='mb-8'>
           <Heading as='h1'>Heading</Heading>
           <Heading as='h2'>Heading</Heading>

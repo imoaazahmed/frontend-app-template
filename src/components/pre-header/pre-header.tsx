@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Box } from '@elements';
 
-export default function PreHeader(): JSX.Element | null {
+export function PreHeader(): JSX.Element | null {
   const [visible, setVisible] = useState(false);
 
   // Helpers
@@ -10,8 +11,8 @@ export default function PreHeader(): JSX.Element | null {
 
   if (!visible) return null;
   return (
-    <div className='bg-green-500 text-white p-4'>
+    <Box className='bg-green-500 text-white p-4'>
       Pre-header .... <button onClick={hidePreHeader}>Close</button>
-    </div>
+    </Box>
   );
 }

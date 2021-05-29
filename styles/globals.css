@@ -3,15 +3,9 @@ a {
 }
 
 header {
-  padding: 1rem;
   border-bottom: 1px solid;
 }
 
-.main-content {
-  padding: 1rem;
-}
-
 footer {
-  padding: 1rem;
   border-top: 1px solid;
 }
