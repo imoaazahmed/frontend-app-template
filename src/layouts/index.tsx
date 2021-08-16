@@ -6,7 +6,8 @@
 
 import React, { ReactNode } from 'react';
 import { OneColumnLayout } from './one-column-layout';
-import _ from 'lodash';
+import _isArray from 'lodash/isArray';
+import _isPlainObject from 'lodash/isPlainObject';
 
 // Section
 interface SectionProps {
@@ -20,12 +21,12 @@ export function Section(props: SectionProps): JSX.Element {
   let section = null;
 
   // Check if object
-  if (_.isPlainObject(sections)) {
+  if (_isPlainObject(sections)) {
     if (sections?.props?.name === name) section = { ...sections };
   }
 
   // Check if array
-  if (_.isArray(sections)) {
+  if (_isArray(sections)) {
     section = sections?.find((section: any) => section?.props?.name === name);
   }
 
@@ -45,16 +46,16 @@ export function Section(props: SectionProps): JSX.Element {
   return <>{children}</>;
 }
 
-// Page
-interface PageProps {
-  layout?: 'one-column' | 'two-columns' | 'three-columns';
+// Layout
+interface LayoutProps {
+  type?: 'one-column' | 'two-columns' | 'three-columns';
   children?: ReactNode;
 }
 
-export function Page(props: PageProps): JSX.Element {
-  const { layout = 'one-column', children } = props;
+export function Layout(props: LayoutProps): JSX.Element {
+  const { type = 'one-column', children } = props;
 
-  switch (layout) {
+  switch (type) {
     case 'two-columns':
       // TODO: develop two columns layout
       return <>Tow columns layout still under development</>;
@@ -67,8 +68,4 @@ export function Page(props: PageProps): JSX.Element {
     default:
       return <OneColumnLayout sections={children} />;
   }
-}
-
-export interface LayoutProps {
-  sections: ReactNode;
 }

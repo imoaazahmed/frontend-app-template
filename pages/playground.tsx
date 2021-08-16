@@ -1,6 +1,6 @@
-import { Page, Section } from '@layout';
-import PlayGroundScreen from '@screens/playground/screen';
 import Head from 'next/head';
+import { Layout, Section } from 'src/layouts';
+import PlayGroundScreen from '@screens/playground/screen';
 
 export default function PlayGround(): JSX.Element {
   return (
@@ -12,11 +12,11 @@ export default function PlayGround(): JSX.Element {
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
 
-      <Page layout='one-column'>
+      <Layout type='one-column'>
         <Section name='content'>
           <PlayGroundScreen />
         </Section>
-      </Page>
+      </Layout>
     </>
   );
 }
