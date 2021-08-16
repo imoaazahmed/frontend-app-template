@@ -34,8 +34,8 @@
       "@redux/*": ["src/redux/*"],
       "@screens/*": ["src/screens/*"],
       "@lib/*": ["src/lib/*"],
-      "@elements": ["src/components/elements"],
-      "@layout": ["src/layouts/config"]
+      "@layouts/*": ["src/layouts/*"],
+      "@elements": ["src/components/elements"]
     }
   },
   "exclude": ["node_modules", "dist", ".next", "out", "next.config.js", "test"],

@@ -8,6 +8,7 @@ import store from '@redux/store';
 import { Provider } from 'react-redux';
 
 // CSS
+import 'antd/dist/antd.css';
 import 'tailwindcss/tailwind.css';
 import '@styles/globals.css';
 

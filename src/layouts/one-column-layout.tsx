@@ -1,15 +1,16 @@
 import React from 'react';
-import { Section, LayoutProps } from '@layout';
-import { Box } from '@elements';
-import { FooterCenter } from '@components/footer/footer-center';
-import { FooterContainer } from '@components/footer/footer-container';
-import { FooterLeft } from '@components/footer/footer-left';
-import { FooterRight } from '@components/footer/footer-right';
-import { HeaderContainer } from '@components/header/header-container';
-import { HeaderLeft } from '@components/header/header-left';
-import { HeaderRight } from '@components/header/header-right';
-import { PreHeader } from '@components/pre-header/pre-header';
-import { BottomMessage } from '@components/bottom-message/bottom-message';
+import { Section } from 'src/layouts';
+import { LayoutProps } from '@layouts/types';
+import { FooterCenter } from '@layouts/components/footer/footer-center';
+import { FooterContainer } from '@layouts/components/footer/footer-container';
+import { FooterLeft } from '@layouts/components/footer/footer-left';
+import { FooterRight } from '@layouts/components/footer/footer-right';
+import { HeaderContainer } from '@layouts/components/header/header-container';
+import { HeaderLeft } from '@layouts/components/header/header-left';
+import { HeaderRight } from '@layouts/components/header/header-right';
+import { PreHeader } from '@layouts/components/pre-header/pre-header';
+import { BottomMessage } from '@layouts/components/bottom-message/bottom-message';
+import { Box } from '@components/elements';
 
 export function OneColumnLayout({ sections }: LayoutProps): JSX.Element {
   return (

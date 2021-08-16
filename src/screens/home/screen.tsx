@@ -1,11 +1,11 @@
 import React from 'react';
-import { Box, Link } from '@elements';
+import { Box, Container, Link } from '@elements';
 
 export default function HomeScreen(): JSX.Element {
   return (
-    <Box>
+    <Container>
       <Box>Home Page</Box>
       <Link href='/playground'>Go To Playground Page</Link>
-    </Box>
+    </Container>
   );
 }
