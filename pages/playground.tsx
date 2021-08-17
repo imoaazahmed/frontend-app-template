@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import { Layout, Section } from 'src/layouts';
-import PlayGroundScreen from '@screens/playground/screen';
+import { Layout, Section } from '../src/layouts';
+import PlayGroundScreen from '../src/screens/playground/screen';
 
 export default function PlayGround(): JSX.Element {
   return (

@@ -1,16 +1,15 @@
 import { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import * as gtag from '@lib/gtag';
+import * as gtag from '../src/lib/gtag';
 
 // Redux
-import store from '@redux/store';
+import store from '../src/redux/store';
 import { Provider } from 'react-redux';
 
 // CSS
 import 'antd/dist/antd.css';
-import 'tailwindcss/tailwind.css';
-import '@styles/globals.css';
+import '../styles/globals.css';
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter();
