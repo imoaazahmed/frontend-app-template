@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, BoxProps } from '@elements';
+import { Container, BoxProps } from '@elements';
 
 export function FooterContainer({ children }: BoxProps): JSX.Element {
-  return <Box className='flex py-4 px-8'>{children}</Box>;
+  return <Container className='flex py-4'>{children}</Container>;
 }

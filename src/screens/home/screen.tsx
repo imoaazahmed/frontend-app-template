@@ -1,11 +1,10 @@
 import React from 'react';
-import { Box, Container, Link } from '@elements';
+import { Box, Container } from '@elements';
 
 export default function HomeScreen(): JSX.Element {
   return (
     <Container>
-      <Box>Home Page</Box>
-      <Link href='/playground'>Go To Playground Page</Link>
+      <Box className='py-8'>Content</Box>
     </Container>
   );
 }
