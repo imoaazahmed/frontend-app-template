@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Layout, Section } from '../src/layouts';
+import { Layout, Section } from 'src/layouts';
 import PlayGroundScreen from '../src/screens/playground/screen';
 
 export default function PlayGround(): JSX.Element {
@@ -12,7 +12,7 @@ export default function PlayGround(): JSX.Element {
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
 
-      <Layout type='one-column'>
+      <Layout>
         <Section name='content'>
           <PlayGroundScreen />
         </Section>

@@ -24,36 +24,6 @@ export function Container(props: ContainerProps): JSX.Element {
 }
 
 /*
- * Main
- */
-export type MainProps = HTMLProps<HTMLDivElement>;
-
-export function Main(props: MainProps): JSX.Element {
-  const { children, ...rest } = props;
-  return <main {...rest}>{children}</main>;
-}
-
-/*
- * Header
- */
-export type HeaderProps = HTMLProps<HTMLDivElement>;
-
-export function Header(props: HeaderProps): JSX.Element {
-  const { children, ...rest } = props;
-  return <header {...rest}>{children}</header>;
-}
-
-/*
- * Footer
- */
-export type FooterProps = HTMLProps<HTMLDivElement>;
-
-export function Footer(props: FooterProps): JSX.Element {
-  const { children, ...rest } = props;
-  return <footer {...rest}>{children}</footer>;
-}
-
-/*
  * Box
  */
 export type BoxProps = HTMLProps<HTMLDivElement>;
@@ -87,7 +57,7 @@ export function Stack(props: StackProps): JSX.Element {
       case 'xs':
         return 'gap-1';
       default:
-        return 'gap-4';
+        return 'gap-0';
     }
   };
 
