@@ -5,9 +5,10 @@
  */
 
 import React, { ReactNode } from 'react';
-import { OneColumnLayout } from './one-column-layout';
 import _isArray from 'lodash/isArray';
 import _isPlainObject from 'lodash/isPlainObject';
+import { HeaderContentFooter } from '@layouts/header-content-footer';
+import { HeaderSiderContent } from '@layouts/header-sider-content';
 
 // Section
 interface SectionProps {
@@ -30,8 +31,8 @@ export function Section(props: SectionProps): JSX.Element {
     section = sections?.find((section: any) => section?.props?.name === name);
   }
 
+  // Check if a Section component
   if (section) {
-    // Check if not a Section component
     const elementType =
       typeof section?.type === 'string' ? section?.type : section?.type?.name;
 
@@ -43,29 +44,25 @@ export function Section(props: SectionProps): JSX.Element {
 
     return <>{section?.props?.children}</>;
   }
+
   return <>{children}</>;
 }
 
 // Layout
 interface LayoutProps {
-  type?: 'one-column' | 'two-columns' | 'three-columns';
+  type?: 'header_content_footer' | 'header_sider_content';
   children?: ReactNode;
 }
 
 export function Layout(props: LayoutProps): JSX.Element {
-  const { type = 'one-column', children } = props;
+  const { type, children } = props;
 
   switch (type) {
-    case 'two-columns':
-      // TODO: develop two columns layout
-      return <>Tow columns layout still under development</>;
+    case 'header_sider_content':
+      return <HeaderSiderContent sections={children} />;
 
-    case 'three-columns':
-      // TODO: develop three columns layout
-      return <>Three columns layout still under development</>;
-
-    case 'one-column':
+    case 'header_content_footer':
     default:
-      return <OneColumnLayout sections={children} />;
+      return <HeaderContentFooter sections={children} />;
   }
 }
