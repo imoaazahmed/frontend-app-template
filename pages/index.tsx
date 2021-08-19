@@ -1,12 +1,12 @@
-import { Page, Section } from '@layout';
-import HomeScreen from '@screens/home/screen';
+import { Layout, Section } from '../src/layouts';
+import HomeScreen from '../src/screens/home/screen';
 
 export default function Home(): JSX.Element {
   return (
-    <Page layout='one-column'>
+    <Layout type='header_content_footer'>
       <Section name='content'>
         <HomeScreen />
       </Section>
-    </Page>
+    </Layout>
   );
 }

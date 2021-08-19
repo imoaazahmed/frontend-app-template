@@ -1,3 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Start customize antd */
+.ant-layout {
+  background-color: transparent;
+}
+
+.ant-layout-header {
+  height: auto;
+  line-height: normal;
+  background-color: transparent;
+  padding: 0;
+}
+
+.ant-layout-footer {
+  height: auto;
+  line-height: normal;
+  background-color: transparent;
+  padding: 0;
+}
+
+.ant-layout-sider {
+  background-color: transparent;
+  border-right: 1px solid;
+}
+
+/* End customize antd */
+
 a {
   display: inline-block;
 }
