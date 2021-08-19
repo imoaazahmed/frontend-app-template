@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section, LayoutProps } from '@layout';
+import { Section } from '@layout';
 import { Box } from '@elements';
 import { FooterCenter } from '@components/footer/footer-center';
 import { FooterContainer } from '@components/footer/footer-container';
@@ -10,6 +10,7 @@ import { HeaderLeft } from '@components/header/header-left';
 import { HeaderRight } from '@components/header/header-right';
 import { PreHeader } from '@components/pre-header/pre-header';
 import { BottomMessage } from '@components/bottom-message/bottom-message';
+import { LayoutProps } from './types';
 
 export function OneColumnLayout({ sections }: LayoutProps): JSX.Element {
   return (

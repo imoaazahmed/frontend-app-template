@@ -4,17 +4,12 @@
  * ----------------------
  */
 
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { OneColumnLayout } from './one-column-layout';
+import { SectionProps, PageProps } from './types';
 import _ from 'lodash';
 
 // Section
-interface SectionProps {
-  name: string;
-  sections?: any;
-  children?: ReactNode;
-}
-
 export function Section(props: SectionProps): JSX.Element {
   const { name, sections, children } = props;
   let section = null;
@@ -46,11 +41,6 @@ export function Section(props: SectionProps): JSX.Element {
 }
 
 // Page
-interface PageProps {
-  layout?: 'one-column' | 'two-columns' | 'three-columns';
-  children?: ReactNode;
-}
-
 export function Page(props: PageProps): JSX.Element {
   const { layout = 'one-column', children } = props;
 
@@ -67,8 +57,4 @@ export function Page(props: PageProps): JSX.Element {
     default:
       return <OneColumnLayout sections={children} />;
   }
-}
-
-export interface LayoutProps {
-  sections: ReactNode;
 }

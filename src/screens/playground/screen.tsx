@@ -8,8 +8,13 @@ import {
   Radio,
   Input,
 } from '@elements';
+import { useApiPosts } from '@hooks/use-post-api';
 
 export default function PlayGroundScreen(): JSX.Element {
+  const { isLoading } = useApiPosts();
+
+  if (isLoading) return <div>loading...</div>;
+
   return (
     <Box>
       <Container className='p-4'>
