@@ -34,47 +34,6 @@ export function Box(props: BoxProps): JSX.Element {
 }
 
 /*
- * Stack
- */
-export type StackProps = HTMLProps<HTMLDivElement> & {
-  gap?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | string;
-  isInline?: boolean;
-};
-
-export function Stack(props: StackProps): JSX.Element {
-  const { gap = 'md', isInline, children, className = '', ...rest } = props;
-
-  const gridGap = () => {
-    switch (gap) {
-      case 'xl':
-        return 'gap-8';
-      case 'lg':
-        return 'gap-7';
-      case 'md':
-        return 'gap-4';
-      case 'sm':
-        return 'gap-3';
-      case 'xs':
-        return 'gap-1';
-      default:
-        return 'gap-0';
-    }
-  };
-
-  const handleIsInline = isInline
-    ? 'grid-flow-col auto-cols-max'
-    : 'grid-cols-1';
-
-  return (
-    <div
-      className={`grid ${handleIsInline} ${gridGap()} ${className}`}
-      {...rest}>
-      {children}
-    </div>
-  );
-}
-
-/*
  * Link
  */
 export type LinkProps = NextLinkProps & HTMLProps<HTMLAnchorElement>;
@@ -129,7 +88,7 @@ export function ActiveLink(props: LinkProps): JSX.Element {
 export type ImageProps = NextImageProps;
 
 export function Image(props: ImageProps): JSX.Element {
-  const { src = 'ss', ...rest } = props;
+  const { src = '', ...rest } = props;
   return <NextImage src={src} {...rest} />;
 }
 
