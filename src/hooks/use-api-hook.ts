@@ -1,44 +1,49 @@
-import useSwr from 'swr';
+import useSwr, { SWRConfiguration } from 'swr';
 import { AxiosError, AxiosResponse } from 'axios';
 
-export interface HookReturnType {
+export interface ApiHookReturnType {
   data?: AxiosResponse;
   error?: AxiosError;
-  isLoading: boolean;
+  mutate: (
+    data?: AxiosResponse,
+    shouldRevalidate?: boolean | undefined
+  ) => Promise<any>;
+  isInitialLoading: boolean;
+  isRefreshing: boolean;
 }
 
 export function useApiHook(
   url: string,
-  fetcher: (url: string) => Promise<any>
-): HookReturnType {
-  const { data, error, isValidating: isLoading } = useSwr(url, fetcher, {
-    onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
-      // Never retry on 404.
-      if (error.response?.status === 404) return;
-
-      // Never retry for a specific key.
-      if (key === '/api/user') return;
-
-      // Only retry up to 10 times.
-      if (retryCount >= 10) return;
-
-      // Retry after 5 seconds.
-      setTimeout(() => revalidate({ retryCount }), 5000);
-    },
+  fetcher: (url: string) => Promise<any>,
+  options?: SWRConfiguration
+): ApiHookReturnType {
+  const { data, error, mutate, isValidating } = useSwr(url, fetcher, {
+    // You can add general options here for all APIs or override options from custom API hook
+    ...options,
   });
 
-  return { data, error, isLoading };
+  const isInitialLoading = isValidating && !data && !error;
+  const isRefreshing = isValidating && (data || error);
+
+  return { data, error, mutate, isInitialLoading, isRefreshing };
 }
 
-// HOW TO USE
-// ----------
-// [1] - Import the useApiHook into your hook file
-// import { HookReturnType, useApiHook } from "@hooks/use-api-hook";
-//
-// [2] - Call the hook and pass your API endpoint
-// const endpoint = "https://jsonplaceholder.typicode.com/posts";
-//
-// export function useApiPosts(): HookReturnType {
-//   const { data, error, isLoading } = useApiHook(endpoint);
-//   return { data, error, isLoading };
-// }
+/*
+  ---------------
+  Important Notes
+  ---------------
+
+  console.log(data, error, isValidating)
+
+  => start fetching
+  undefined undefined true
+
+  => end fetching, got an error
+  undefined Error false
+
+  => start retrying
+  undefined Error true
+
+  => end retrying, get the data
+  Data undefined false
+*/
