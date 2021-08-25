@@ -35,6 +35,7 @@
       "@screens/*": ["src/screens/*"],
       "@lib/*": ["src/lib/*"],
       "@layouts/*": ["src/layouts/*"],
+      "@apis/*": ["src/apis/*"],
       "@elements": ["src/components/elements"]
     }
   },

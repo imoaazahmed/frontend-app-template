@@ -1,0 +1,30 @@
+/**
+ * @name GET
+ * @author Moaaz Ahmed
+ * @summary This file will be containing all the handle methods for fetching data using get method.
+ * @description As you can see in the file we are using useSWR for fetching data.
+ * @access private
+ *
+ * @function useFetchApiGet This is the main function for for re-use outside of the file to call or fetch some data.
+ * @readonly Please don't make any changes to this file.
+ */
+
+import useSWR, { SWRConfiguration } from 'swr';
+import { GetApiResponse, FetcherResponse } from '@apis/types';
+
+export function useFetchApiGet(
+  url: string,
+  fetcher: (url: string) => FetcherResponse,
+  options?: SWRConfiguration
+): GetApiResponse {
+  const { data, error, mutate, isValidating } = useSWR(url, fetcher, {
+    // You can add general options here for all APIs or override options from custom API hook
+    revalidateOnFocus: false,
+    ...options,
+  });
+
+  const isInitialLoading = isValidating && !data && !error;
+  const isRefreshing = isValidating && (data || error);
+
+  return { data, error, mutate, isInitialLoading, isRefreshing };
+}
