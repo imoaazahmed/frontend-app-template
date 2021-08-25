@@ -1,10 +1,8 @@
 import React from 'react';
 import { Box, Container } from '@elements';
-import { useGetPostsApi } from 'src/api/use-post-apis';
-import { Button, Skeleton as AntdSkeleton, Spin } from 'antd';
-import { LoadingOutlined } from '@ant-design/icons';
-
-const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+import { useGetPostsApi } from '@apis/post/use-get-post-api';
+import { Button, Skeleton as AntdSkeleton, Space } from 'antd';
+import { useCreatePostApi } from '@apis/post/use-create-post-api';
 
 export default function HomeScreen(): JSX.Element {
   const {
@@ -14,6 +12,16 @@ export default function HomeScreen(): JSX.Element {
     isInitialLoading,
     isRefreshing,
   } = useGetPostsApi();
+
+  const create = async () => {
+    const postData = {
+      title: 'foo',
+      body: 'bar',
+      userId: 3,
+    };
+
+    await useCreatePostApi({ data: postData });
+  };
 
   if (isInitialLoading) {
     return (
@@ -25,18 +33,20 @@ export default function HomeScreen(): JSX.Element {
 
   return (
     <Container className='py-8'>
-      {isRefreshing && (
-        <Box className='mb-8 text-center'>
-          <Spin indicator={antIcon} />
-        </Box>
-      )}
+      {isRefreshing && <Box className='mb-4'>Refreshing...</Box>}
 
       {data && <Box>Data</Box>}
       {error && <Box>Error</Box>}
 
-      <Button type='primary' onClick={() => mutate()} className='mt-8'>
-        Refresh
-      </Button>
+      <Space size='middle'>
+        <Button type='default' onClick={mutate} className='mt-8'>
+          Refresh
+        </Button>
+
+        <Button type='primary' onClick={create} className='mt-8'>
+          Create
+        </Button>
+      </Space>
     </Container>
   );
 }
