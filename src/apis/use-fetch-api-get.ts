@@ -1,8 +1,13 @@
-/*
-| =============
-| GET
-| =============
-*/
+/**
+ * @name GET
+ * @author Moaaz Ahmed
+ * @summary This file will be containing all the handle methods for fetching data using get method.
+ * @description As you can see in the file we are using useSWR for fetching data.
+ * @access private
+ *
+ * @function useFetchApiGet This is the main function for for re-use outside of the file to call or fetch some data.
+ * @readonly Please don't make any changes to this file.
+ */
 
 import useSWR, { SWRConfiguration } from 'swr';
 import { GetApiResponse, FetcherResponse } from '@apis/types';
