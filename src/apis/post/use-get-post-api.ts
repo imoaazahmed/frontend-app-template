@@ -1,22 +1,15 @@
-/* eslint-disable no-useless-catch */
-import http from '@services/http-service';
-import { FetcherResponse, GetApiResponse } from '@apis/types';
+import { GetApiResponse } from '@apis/types';
 import { useFetchApiGet } from '@apis/use-fetch-api-get';
+import { AxiosRequestConfig } from 'axios';
+import { SWRConfiguration } from 'swr';
 
 // Endpoint
 const endpoint = '/posts';
 
-// Fetcher function
-async function fetcher(url: string): FetcherResponse {
-  try {
-    const { data } = await http.get(url);
-    return data;
-  } catch (err) {
-    throw err;
-  }
-}
-
 // Get posts
 export function useGetPostsApi(): GetApiResponse {
-  return useFetchApiGet(endpoint, fetcher);
+  const config: AxiosRequestConfig = {};
+  const options: SWRConfiguration = {};
+
+  return useFetchApiGet(endpoint, config, options);
 }

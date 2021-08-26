@@ -20,7 +20,7 @@ export default function HomeScreen(): JSX.Element {
       userId: 3,
     };
 
-    await useCreatePostApi({ data: postData });
+    await useCreatePostApi(postData);
   };
 
   if (isInitialLoading) {

@@ -7,7 +7,12 @@ const endpoint = '/posts';
 
 // Create post
 export function useCreatePostApi(
-  config?: AxiosRequestConfig
+  data?: AxiosRequestConfig['data']
 ): Promise<PostApiResponse> {
-  return useFetchApiPost(endpoint, config);
+  const config: AxiosRequestConfig = {};
+
+  return useFetchApiPost(endpoint, {
+    ...config,
+    data,
+  });
 }
