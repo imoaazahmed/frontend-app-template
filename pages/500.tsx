@@ -18,12 +18,5 @@ function Buttons(): JSX.Element {
 }
 
 export default function Custom500(): JSX.Element {
-  return (
-    <Result
-      status='500'
-      title='500'
-      subTitle='Sorry, something went wrong.'
-      extra={<Buttons />}
-    />
-  );
+  return <Result status='500' title='500' subTitle='Sorry, something went wrong.' extra={<Buttons />} />;
 }

@@ -26,11 +26,7 @@ type Method =
 
 const defaultMethods = ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'];
 
-export async function useCors(
-  req: NextApiRequest,
-  res: NextApiResponse,
-  methods?: Method[]
-): Promise<void> {
+export async function useCors(req: NextApiRequest, res: NextApiResponse, methods?: Method[]): Promise<void> {
   // Initialize the cors middleware
   const cors = initMiddleware(
     // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options

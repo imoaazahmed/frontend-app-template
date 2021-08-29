@@ -33,8 +33,7 @@ export function Section(props: SectionProps): JSX.Element {
 
   // Check if a Section component
   if (section) {
-    const elementType =
-      typeof section?.type === 'string' ? section?.type : section?.type?.name;
+    const elementType = typeof section?.type === 'string' ? section?.type : section?.type?.name;
 
     if (elementType !== 'Section') {
       throw new Error(

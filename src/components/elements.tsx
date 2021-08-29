@@ -39,18 +39,7 @@ export function Box(props: BoxProps): JSX.Element {
 export type LinkProps = NextLinkProps & HTMLProps<HTMLAnchorElement>;
 
 export function Link(props: LinkProps): JSX.Element {
-  const {
-    href,
-    passHref,
-    as,
-    prefetch,
-    replace,
-    scroll,
-    shallow,
-    locale,
-    children,
-    ...rest
-  } = props;
+  const { href, passHref, as, prefetch, replace, scroll, shallow, locale, children, ...rest } = props;
 
   return (
     <NextLink

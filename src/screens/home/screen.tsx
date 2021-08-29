@@ -5,13 +5,7 @@ import { Button, Skeleton as AntdSkeleton, Space } from 'antd';
 import { useCreatePostApi } from '@apis/post/use-create-post-api';
 
 export default function HomeScreen(): JSX.Element {
-  const {
-    data,
-    error,
-    mutate,
-    isInitialLoading,
-    isRefreshing,
-  } = useGetPostsApi();
+  const { data, error, mutate, isInitialLoading, isRefreshing } = useGetPostsApi();
 
   const create = async () => {
     const postData = {

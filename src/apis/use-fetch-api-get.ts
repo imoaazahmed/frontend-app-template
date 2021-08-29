@@ -25,21 +25,13 @@ async function fetcher(url: string, config: string): FetcherResponse {
   }
 }
 
-export function useFetchApiGet(
-  url: string,
-  config: AxiosRequestConfig,
-  options: SWRConfiguration
-): GetApiResponse {
+export function useFetchApiGet(url: string, config: AxiosRequestConfig, options: SWRConfiguration): GetApiResponse {
   // We are stringify the config object here to avoid re-renders because useSWR doesn't accept deep depth in it's arguments
-  const { data, error, mutate, isValidating } = useSWR(
-    [url, JSON.stringify(config)],
-    fetcher,
-    {
-      // You can add general options here for all APIs or override options from custom API hook
-      revalidateOnFocus: false,
-      ...options,
-    }
-  );
+  const { data, error, mutate, isValidating } = useSWR([url, JSON.stringify(config)], fetcher, {
+    // You can add general options here for all APIs or override options from custom API hook
+    revalidateOnFocus: false,
+    ...options,
+  });
 
   const isInitialLoading = isValidating && !data && !error;
   const isRefreshing = isValidating && (data || error);

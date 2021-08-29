@@ -1,10 +1,7 @@
 import { AxiosError, AxiosResponse } from 'axios';
 
 // GET Method Response
-type Mutate = (
-  data?: AxiosResponse['data'],
-  shouldRevalidate?: boolean
-) => Promise<any>;
+type Mutate = (data?: AxiosResponse['data'], shouldRevalidate?: boolean) => Promise<any>;
 
 export interface GetApiResponse {
   isInitialLoading: boolean;

@@ -1,9 +1,5 @@
 import { createAction, Dispatch } from '@reduxjs/toolkit';
-import {
-  FETCH_AUTH_DATA_REQUEST,
-  FETCH_AUTH_DATA_SUCCESS,
-  FETCH_AUTH_DATA_FAILURE,
-} from './types';
+import { FETCH_AUTH_DATA_REQUEST, FETCH_AUTH_DATA_SUCCESS, FETCH_AUTH_DATA_FAILURE } from './types';
 
 // Fetch Auth Data
 export const fetchAuthDataRequest = createAction(FETCH_AUTH_DATA_REQUEST);

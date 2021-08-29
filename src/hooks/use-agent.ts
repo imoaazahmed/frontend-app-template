@@ -40,16 +40,13 @@ export function useAgent(): AgentTypes {
     let ix;
 
     agentCopy.pointLock =
-      'pointerLockElement' in document ||
-      'mozPointerLockElement' in document ||
-      'webkitPointerLockElement' in document;
+      'pointerLockElement' in document || 'mozPointerLockElement' in document || 'webkitPointerLockElement' in document;
 
     // In Opera, the true version is after "Opera" or after "Version"
     if ((verOffset = nAgt.indexOf('Opera')) !== -1) {
       browserName = 'Opera';
       fullVersion = nAgt.substring(verOffset + 6);
-      if ((verOffset = nAgt.indexOf('Version')) !== -1)
-        fullVersion = nAgt.substring(verOffset + 8);
+      if ((verOffset = nAgt.indexOf('Version')) !== -1) fullVersion = nAgt.substring(verOffset + 8);
     }
 
     // In MSIE, the true version is after "MSIE" in userAgent
@@ -68,8 +65,7 @@ export function useAgent(): AgentTypes {
     else if ((verOffset = nAgt.indexOf('Safari')) !== -1) {
       browserName = 'Safari';
       fullVersion = nAgt.substring(verOffset + 7);
-      if ((verOffset = nAgt.indexOf('Version')) !== -1)
-        fullVersion = nAgt.substring(verOffset + 8);
+      if ((verOffset = nAgt.indexOf('Version')) !== -1) fullVersion = nAgt.substring(verOffset + 8);
     }
 
     // In Firefox, the true version is after "Firefox"
@@ -79,10 +75,7 @@ export function useAgent(): AgentTypes {
     }
 
     // In most other browsers, "name/version" is at the end of userAgent
-    else if (
-      (nameOffset = nAgt.lastIndexOf(' ') + 1) <
-      (verOffset = nAgt.lastIndexOf('/'))
-    ) {
+    else if ((nameOffset = nAgt.lastIndexOf(' ') + 1) < (verOffset = nAgt.lastIndexOf('/'))) {
       browserName = nAgt.substring(nameOffset, verOffset);
       fullVersion = nAgt.substring(verOffset + 1);
       if (browserName.toLowerCase() === browserName.toUpperCase()) {
@@ -91,10 +84,8 @@ export function useAgent(): AgentTypes {
     }
 
     // trim the fullVersion string at semicolon/space if present
-    if ((ix = fullVersion.indexOf(';')) !== -1)
-      fullVersion = fullVersion.substring(0, ix);
-    if ((ix = fullVersion.indexOf(' ')) !== -1)
-      fullVersion = fullVersion.substring(0, ix);
+    if ((ix = fullVersion.indexOf(';')) !== -1) fullVersion = fullVersion.substring(0, ix);
+    if ((ix = fullVersion.indexOf(' ')) !== -1) fullVersion = fullVersion.substring(0, ix);
 
     majorVersion = parseInt('' + fullVersion, 10);
     if (isNaN(majorVersion)) {
