@@ -1,14 +1,18 @@
 import axios from 'axios';
+import { useCurrentLang } from '@hooks/use-current-lang';
 
 // Default configs
 axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
 axios.defaults.headers.common['Authorization'] = 'AUTH_TOKEN';
+axios.defaults.headers.common['Language'] = useCurrentLang();
 axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.withCredentials = true;
 
 // Add a request interceptor
 axios.interceptors.request.use(
   function (config) {
     // Do something before request is sent
+    config.headers.common['Language'] = useCurrentLang();
     return config;
   },
   function (error) {
