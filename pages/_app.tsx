@@ -11,6 +11,9 @@ import { Provider } from 'react-redux';
 import 'antd/dist/antd.css';
 import '../styles/globals.css';
 
+// Trans
+import '../src/lib/i18n';
+
 function App({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter();
 

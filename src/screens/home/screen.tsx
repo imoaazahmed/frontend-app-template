@@ -3,9 +3,11 @@ import { Box, Container } from '@elements';
 import { useGetPostsApi } from '@apis/post/use-get-post-api';
 import { Button, Skeleton as AntdSkeleton, Space } from 'antd';
 import { useCreatePostApi } from '@apis/post/use-create-post-api';
+import { useTrans } from '@hooks/use-trans';
 
 export default function HomeScreen(): JSX.Element {
   const { data, error, mutate, isInitialLoading, isRefreshing } = useGetPostsApi();
+  const trans = useTrans();
 
   const create = async () => {
     const postData = {
@@ -29,6 +31,7 @@ export default function HomeScreen(): JSX.Element {
     <Container className='py-8'>
       {isRefreshing && <Box className='mb-4'>Refreshing...</Box>}
 
+      <Box>{trans('test_language')}</Box>
       {data && <Box>Data</Box>}
       {error && <Box>Error</Box>}
 
