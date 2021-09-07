@@ -4,7 +4,7 @@ import { SelectLanguage } from '@components/select-lang';
 
 export function HeaderRight({ ...rest }: BoxProps): JSX.Element {
   return (
-    <Box className='ml-auto' {...rest}>
+    <Box className='ms-auto' {...rest}>
       <SelectLanguage />
     </Box>
   );
