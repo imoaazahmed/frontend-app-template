@@ -4,11 +4,15 @@ This is a template for any [React.js](https://reactjs.org/) app using [Next.js](
 
 First, clone the repo to your machine:
 
+```bash
     git clone git@github.com:imoaazahmed/nextjs-template.git
+```
 
 Secend, run the development server:
 
+```bash
     yarn dev
+```
 
 Open [http://localhost:3000](http://localhost:3000/) with your browser to see the result.
 
