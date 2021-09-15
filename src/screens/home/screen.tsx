@@ -21,27 +21,27 @@ export default function HomeScreen(): JSX.Element {
 
   if (isInitialLoading) {
     return (
-      <Container className='py-8'>
+      <Container className='py-xl'>
         <AntdSkeleton.Input active size='small' className='w-full' />
       </Container>
     );
   }
 
   return (
-    <Container className='py-8'>
-      {isRefreshing && <Box className='mb-4'>Refreshing...</Box>}
+    <Container className='py-xl'>
+      {isRefreshing && <Box className='mb-md'>{trans('txt_refreshing')}</Box>}
 
       <Box>{trans('test_language')}</Box>
       {data && <Box>Data</Box>}
       {error && <Box>Error</Box>}
 
       <Space size='middle'>
-        <Button type='default' onClick={mutate} className='mt-8'>
-          Refresh
+        <Button type='default' onClick={mutate} className='mt-lg'>
+          {trans('txt_refresh')}
         </Button>
 
-        <Button type='primary' onClick={create} className='mt-8'>
-          Create
+        <Button type='primary' onClick={create} className='mt-lg'>
+          {trans('txt_create')}
         </Button>
       </Space>
     </Container>

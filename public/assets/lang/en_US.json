@@ -1,3 +1,6 @@
 {
-    "test_language": "Welcome to our application with the English language"
+    "test_language": "Welcome to our application with the English language",
+    "txt_create": "Create",
+    "txt_refresh": "Refresh",
+    "txt_refreshing": "Refreshing..."
 }

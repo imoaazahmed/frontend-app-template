@@ -1,8 +1,73 @@
+/**
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins.
+ */
 @tailwind base;
+
+/**
+  * This injects Tailwind's component classes and any component classes
+  * registered by plugins.
+  */
 @tailwind components;
+
+/**
+  * This injects Tailwind's utility classes and any utility classes registered
+  * by plugins.
+  */
 @tailwind utilities;
 
-/* Start customize antd */
+/**
+  * Use this directive to control where Tailwind injects the responsive
+  * variations of each utility.
+  *
+  * If omitted, Tailwind will append these classes to the very end of
+  * your styleSheet by default.
+  */
+@tailwind variants;
+
+/**
+  * This injects some custom styles for Tailwind's base styles.
+  */
+@layer base {
+  a {
+    display: inline-block;
+  }
+
+  header {
+    border-bottom: 1px solid;
+  }
+
+  footer {
+    border-top: 1px solid;
+  }
+}
+
+/**
+  * This injects some custom utilities for Tailwind's utility classes.
+  */
+@layer utilities {
+  @variants responsive {
+    .me-auto {
+      margin-inline-end: auto;
+    }
+
+    .ms-auto {
+      margin-inline-start: auto;
+    }
+
+    .pe-auto {
+      padding-inline-end: auto;
+    }
+
+    .ps-auto {
+      padding-inline-start: auto;
+    }
+  }
+}
+
+/**
+  * Override some [antd] default styles.
+  */
 .ant-layout {
   background-color: transparent;
 }
@@ -24,34 +89,4 @@
 .ant-layout-sider {
   background-color: transparent;
   border-right: 1px solid;
-}
-
-/* End customize antd */
-
-a {
-  display: inline-block;
-}
-
-header {
-  border-bottom: 1px solid;
-}
-
-footer {
-  border-top: 1px solid;
-}
-
-.me-auto {
-  margin-inline-end: auto;
-}
-
-.ms-auto {
-  margin-inline-start: auto;
-}
-
-.pe-auto {
-  padding-inline-end: auto;
-}
-
-.ps-auto {
-  padding-inline-start: auto;
 }

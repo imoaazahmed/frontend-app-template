@@ -7,14 +7,14 @@ import { useCurrentLang } from '@hooks/use-current-lang';
 const { Option } = Select;
 
 export function SelectLanguage(): JSX.Element {
-  const [_document, set_document] = useState<Document | null>(null);
+  const [_document, setDocument] = useState<Document | null>(null);
   const htmlElement = _document?.querySelector('html');
   const currentLang = useCurrentLang();
   const { en_US, ar_EG } = Languages;
 
   // Get document object
   useEffect(() => {
-    set_document(document);
+    setDocument(document);
   }, [_document]);
 
   // Set default value for [lang, dir] attribute in html tag
@@ -50,7 +50,7 @@ export function SelectLanguage(): JSX.Element {
   return (
     <Select defaultValue={currentLang} style={{ width: 100 }} onChange={handleChange}>
       <Option value={en_US}>English</Option>
-      <Option value={ar_EG}>Arabic</Option>
+      <Option value={ar_EG}>عربي</Option>
     </Select>
   );
 }
