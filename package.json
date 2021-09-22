@@ -8,15 +8,11 @@
     "start": "cross-env NODE_ENV=production node dist/index.js",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
-    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx --ignore-path .eslintignore .",
+    "lint:fix": "eslint --fix --ext .ts,.tsx,.js,.jsx --ignore-path .eslintignore .",
     "test": "jest",
-    "test-all": "yarn lint && yarn type-check && yarn test"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn run type-check"
-    }
+    "test-all": "yarn lint && yarn type-check && yarn test",
+    "prepare": "npx husky install"
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
@@ -52,7 +48,7 @@
     "eslint-plugin-react": "^7.19.0",
     "express": "^4.17.1",
     "firebase": "^7.6.2",
-    "husky": "^4.2.3",
+    "husky": "^7.0.2",
     "i18next": "^20.4.0",
     "i18next-browser-languagedetector": "^6.1.2",
     "identity-obj-proxy": "^3.0.0",
