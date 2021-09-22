@@ -1,6 +1,11 @@
 .next
+.husky
 .env
 .prettierignore
+.github
+.eslintignore
+dist
 node_modules
+Dockerfile
 yarn.lock
 public
