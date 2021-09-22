@@ -1,3 +1,5 @@
+# NextJS Template
+
 This is a template for any [React.js](https://reactjs.org/) app using [Next.js](https://nextjs.org/)
 
 ## Getting Started
