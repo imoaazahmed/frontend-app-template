@@ -7,14 +7,14 @@ export interface GetApiResponse {
   isInitialLoading: boolean;
   isRefreshing: boolean;
   mutate: Mutate;
-  data?: AxiosResponse;
-  error?: AxiosError;
+  data?: AxiosResponse['data'];
+  error?: AxiosError | unknown;
 }
 
 // POST Method Response
 export interface PostApiResponse {
-  data?: AxiosResponse;
-  error?: AxiosError;
+  data?: AxiosResponse['data'];
+  error?: AxiosError | unknown;
 }
 
 // Fetcher Function Response
