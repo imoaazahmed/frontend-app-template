@@ -50,7 +50,8 @@ export function Link(props: LinkProps): JSX.Element {
       replace={replace}
       scroll={scroll}
       shallow={shallow}
-      locale={locale}>
+      locale={locale}
+    >
       <a {...rest}>{children}</a>
     </NextLink>
   );

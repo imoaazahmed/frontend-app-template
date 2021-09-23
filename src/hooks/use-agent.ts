@@ -108,9 +108,10 @@ export function useAgent(): AgentTypes {
     agentCopy.browser.os = OSName;
 
     // Check if is mobile
-    const isMobile = /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/.test(
-      navigator.userAgent
-    );
+    const isMobile =
+      /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/.test(
+        navigator.userAgent
+      );
 
     if (isMobile) agentCopy.isMobile = true;
 
