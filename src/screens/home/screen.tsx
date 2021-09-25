@@ -1,9 +1,8 @@
 import React from 'react';
-import { Box, Container } from '@elements';
 import { useGetPostsApi } from '@apis/post/use-get-post-api';
-import { Button, Skeleton as AntdSkeleton, Space } from 'antd';
 import { useCreatePostApi } from '@apis/post/use-create-post-api';
 import { useTrans } from '@hooks/use-trans';
+import { Container, Box, Button, Stack, Skeleton, CircularProgress } from '@mui/material';
 
 export default function HomeScreen(): JSX.Element {
   const { data, error, mutate, isInitialLoading, isRefreshing } = useGetPostsApi();
@@ -21,29 +20,35 @@ export default function HomeScreen(): JSX.Element {
 
   if (isInitialLoading) {
     return (
-      <Container className='py-xl'>
-        <AntdSkeleton.Input active size='small' className='w-full' />
+      <Container maxWidth='xl'>
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
       </Container>
     );
   }
 
   return (
-    <Container className='py-xl'>
-      {isRefreshing && <Box className='mb-md'>{trans('txt_refreshing')}</Box>}
+    <Container maxWidth='xl'>
+      {isRefreshing && (
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: '1rem' }}>
+          <CircularProgress size={20} />
+        </Box>
+      )}
 
       <Box>{trans('test_language')}</Box>
       {data && <Box>Data</Box>}
       {error && <Box>Error</Box>}
 
-      <Space size='middle'>
-        <Button type='default' onClick={mutate} className='mt-lg'>
+      <Stack direction='row' spacing={2} sx={{ mt: '1rem' }}>
+        <Button variant='outlined' onClick={mutate} disabled={isRefreshing ? true : false}>
           {trans('txt_refresh')}
         </Button>
 
-        <Button type='primary' onClick={create} className='mt-lg'>
+        <Button variant='contained' onClick={create}>
           {trans('txt_create')}
         </Button>
-      </Space>
+      </Stack>
     </Container>
   );
 }

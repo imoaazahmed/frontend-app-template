@@ -1,6 +1,14 @@
 import React from 'react';
-import { Container, BoxProps } from '@elements';
+import { Container } from '@mui/material';
 
-export function FooterContainer({ children }: BoxProps): JSX.Element {
-  return <Container className='flex py-md'>{children}</Container>;
+interface FooterContainerProps {
+  children: React.ReactNode;
+}
+
+export function FooterContainer({ children }: FooterContainerProps): JSX.Element {
+  return (
+    <Container maxWidth='xl' sx={{ display: 'flex', py: '1rem' }}>
+      {children}
+    </Container>
+  );
 }

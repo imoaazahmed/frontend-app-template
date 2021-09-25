@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box } from '@elements';
+import { Box } from '@mui/material';
 
 export function PreHeader(): JSX.Element | null {
   const [visible, setVisible] = useState(false);
@@ -11,7 +11,7 @@ export function PreHeader(): JSX.Element | null {
 
   if (!visible) return null;
   return (
-    <Box className='bg-green-500 text-white p-4'>
+    <Box sx={{ bgcolor: 'green', color: 'white', padding: '1rem' }}>
       Pre-header .... <button onClick={hidePreHeader}>Close</button>
     </Box>
   );

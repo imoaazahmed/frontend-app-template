@@ -2,19 +2,31 @@ import { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import * as gtag from '../src/lib/gtag';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import theme from '../src/lib/theme';
+import createEmotionCache from '../src/lib/createEmotionCache';
 
 // Redux
 import store from '../src/redux/store';
 import { Provider } from 'react-redux';
 
 // CSS
-import 'antd/dist/antd.css';
 import '../styles/globals.css';
 
 // Trans
 import '../src/lib/i18n';
 
-function App({ Component, pageProps }: AppProps): JSX.Element {
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
+
+interface MyAppProps extends AppProps {
+  emotionCache?: EmotionCache;
+}
+
+function MyApp(props: MyAppProps): JSX.Element {
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const router = useRouter();
 
   // Google Analytics
@@ -25,10 +37,17 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
   }, [router.events]);
 
   return (
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
+    <CacheProvider value={emotionCache}>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
+      </ThemeProvider>
+    </CacheProvider>
   );
 }
 
-export default App;
+export default MyApp;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box } from '@elements';
+import { Box } from '@mui/material';
 
 export function BottomMessage(): JSX.Element | null {
   const [visible, setVisible] = useState(false);
@@ -11,7 +11,7 @@ export function BottomMessage(): JSX.Element | null {
 
   if (!visible) return null;
   return (
-    <Box className='absolute bottom-0 w-full bg-blue-800 text-white p-4'>
+    <Box sx={{ position: 'absolute', bottom: 0, width: '100%', bgcolor: 'blue', color: 'white', padding: '1rem' }}>
       Bottom Message .... <button onClick={hideBottomMessage}>Close</button>
     </Box>
   );

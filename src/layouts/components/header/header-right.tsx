@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box, BoxProps } from '@elements';
 import { SelectLanguage } from '@components/select-lang';
+import { Box } from '@mui/material';
 
-export function HeaderRight({ ...rest }: BoxProps): JSX.Element {
+export function HeaderRight(): JSX.Element {
   return (
-    <Box className='ms-auto' {...rest}>
+    <Box sx={{ marginInlineStart: 'auto' }}>
       <SelectLanguage />
     </Box>
   );

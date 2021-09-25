@@ -1,6 +1,14 @@
 import React from 'react';
-import { Container, BoxProps } from '@elements';
+import { Container } from '@mui/material';
 
-export function HeaderContainer({ children }: BoxProps): JSX.Element {
-  return <Container className='flex items-center py-md'>{children}</Container>;
+interface HeaderContainerProps {
+  children: React.ReactNode;
+}
+
+export function HeaderContainer({ children }: HeaderContainerProps): JSX.Element {
+  return (
+    <Container maxWidth='xl' sx={{ display: 'flex', alignItems: 'center', py: '1rem' }}>
+      {children}
+    </Container>
+  );
 }

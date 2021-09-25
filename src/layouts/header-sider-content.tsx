@@ -1,16 +1,16 @@
 import React from 'react';
-import { Layout } from 'antd';
 import { Section } from 'src/layouts';
 import { LayoutProps } from '@layouts/types';
 import { HeaderContainer } from '@layouts/components/header/header-container';
 import { HeaderLeft } from '@layouts/components/header/header-left';
 import { HeaderRight } from '@layouts/components/header/header-right';
 import { PreHeader } from '@layouts/components/pre-header/pre-header';
+import { Box } from '@mui/material';
 
 export function HeaderSiderContent({ sections }: LayoutProps): JSX.Element {
   return (
-    <Layout className='min-h-screen flex flex-col'>
-      <Layout.Header>
+    <Box component='main' sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Box component='header'>
         {/* Start Pre Header */}
         <Section sections={sections} name='pre-header'>
           <PreHeader />
@@ -25,19 +25,19 @@ export function HeaderSiderContent({ sections }: LayoutProps): JSX.Element {
           </HeaderContainer>
         </Section>
         {/* End Header */}
-      </Layout.Header>
+      </Box>
 
-      <Layout>
+      <Box component='main' sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'row' }}>
         {/* Start Sider */}
-        <Layout.Sider>Sider</Layout.Sider>
+        <Box component='aside'>Sider</Box>
         {/* End Sider */}
 
         {/* Start Content */}
-        <Layout.Content>
+        <Box component='section'>
           <Section sections={sections} name='content' />
-        </Layout.Content>
+        </Box>
         {/* End Content */}
-      </Layout>
-    </Layout>
+      </Box>
+    </Box>
   );
 }
