@@ -1,5 +1,4 @@
 import React from 'react';
-import { Layout } from 'antd';
 import { Section } from 'src/layouts';
 import { LayoutProps } from '@layouts/types';
 import { FooterCenter } from '@layouts/components/footer/footer-center';
@@ -11,11 +10,12 @@ import { HeaderLeft } from '@layouts/components/header/header-left';
 import { HeaderRight } from '@layouts/components/header/header-right';
 import { PreHeader } from '@layouts/components/pre-header/pre-header';
 import { BottomMessage } from '@layouts/components/bottom-message/bottom-message';
+import { Box } from '@mui/material';
 
 export function HeaderContentFooter({ sections }: LayoutProps): JSX.Element {
   return (
-    <Layout className='min-h-screen flex flex-col'>
-      <Layout.Header>
+    <Box component='main' sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Box component='header'>
         {/* Start Pre Header */}
         <Section sections={sections} name='pre-header'>
           <PreHeader />
@@ -30,15 +30,15 @@ export function HeaderContentFooter({ sections }: LayoutProps): JSX.Element {
           </HeaderContainer>
         </Section>
         {/* End Header */}
-      </Layout.Header>
+      </Box>
 
       {/* Start Content */}
-      <Layout.Content className='flex-grow'>
+      <Box component='section' sx={{ flexGrow: 1, py: '1rem' }}>
         <Section sections={sections} name='content' />
-      </Layout.Content>
+      </Box>
       {/* End Content */}
 
-      <Layout.Footer>
+      <Box component='footer'>
         {/* Start Footer */}
         <Section sections={sections} name='footer'>
           <FooterContainer>
@@ -54,7 +54,7 @@ export function HeaderContentFooter({ sections }: LayoutProps): JSX.Element {
           <BottomMessage />
         </Section>
         {/* End Bottom Message */}
-      </Layout.Footer>
-    </Layout>
+      </Box>
+    </Box>
   );
 }

@@ -1,10 +1,6 @@
 import React from 'react';
-import { Box, BoxProps } from '@elements';
+import { Box } from '@mui/material';
 
-export function FooterCenter({ ...rest }: BoxProps): JSX.Element {
-  return (
-    <Box className='mx-auto' {...rest}>
-      Footer Center
-    </Box>
-  );
+export function FooterCenter(): JSX.Element {
+  return <Box sx={{ mx: 'auto' }}>Footer Center</Box>;
 }

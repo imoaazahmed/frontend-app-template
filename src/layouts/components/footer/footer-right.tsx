@@ -1,10 +1,6 @@
 import React from 'react';
-import { Box, BoxProps } from '@elements';
+import { Box } from '@mui/material';
 
-export function FooterRight({ ...rest }: BoxProps): JSX.Element {
-  return (
-    <Box className='ms-auto' {...rest}>
-      Footer Right
-    </Box>
-  );
+export function FooterRight(): JSX.Element {
+  return <Box sx={{ marginInlineStart: 'auto' }}>Footer Right</Box>;
 }

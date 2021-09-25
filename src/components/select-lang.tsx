@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import i18n from 'i18next';
-import { Select } from 'antd';
 import { Languages } from '@lib/i18n';
-import { SelectValue } from 'antd/lib/select';
 import { useCurrentLang } from '@hooks/use-current-lang';
-const { Option } = Select;
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import { useRouter } from 'next/router';
 
 export function SelectLanguage(): JSX.Element {
   const [_document, setDocument] = useState<Document | null>(null);
   const htmlElement = _document?.querySelector('html');
   const currentLang = useCurrentLang();
   const { en_US, ar_EG } = Languages;
+  const router = useRouter();
 
   // Get document object
   useEffect(() => {
@@ -35,22 +36,24 @@ export function SelectLanguage(): JSX.Element {
     }
   };
 
-  const handleChange = (value: SelectValue) => {
+  const handleChange = (e: SelectChangeEvent) => {
+    const { value } = e.target;
+
     if (value === ar_EG) {
       i18n.changeLanguage(ar_EG);
-      setHTMLTags('ar');
     }
 
     if (value === en_US) {
       i18n.changeLanguage(en_US);
-      setHTMLTags('en');
     }
+
+    router.reload();
   };
 
   return (
-    <Select defaultValue={currentLang} style={{ width: 100 }} onChange={handleChange}>
-      <Option value={en_US}>English</Option>
-      <Option value={ar_EG}>عربي</Option>
+    <Select size='small' defaultValue={currentLang} sx={{ width: '100px' }} onChange={handleChange}>
+      <MenuItem value={en_US}>English</MenuItem>
+      <MenuItem value={ar_EG}>عربي</MenuItem>
     </Select>
   );
 }

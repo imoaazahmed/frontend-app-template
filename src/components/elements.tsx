@@ -10,30 +10,6 @@ import NextImage, { ImageProps as NextImageProps } from 'next/image';
 import { useRouter } from 'next/router';
 
 /*
- * Container
- */
-export type ContainerProps = HTMLProps<HTMLDivElement>;
-
-export function Container(props: ContainerProps): JSX.Element {
-  const { children, className = '', ...rest } = props;
-  return (
-    <div className={`container mx-auto ${className}`} {...rest}>
-      {children}
-    </div>
-  );
-}
-
-/*
- * Box
- */
-export type BoxProps = HTMLProps<HTMLDivElement>;
-
-export function Box(props: BoxProps): JSX.Element {
-  const { children, ...rest } = props;
-  return <div {...rest}>{children}</div>;
-}
-
-/*
  * Link
  */
 export type LinkProps = NextLinkProps & HTMLProps<HTMLAnchorElement>;
@@ -50,8 +26,7 @@ export function Link(props: LinkProps): JSX.Element {
       replace={replace}
       scroll={scroll}
       shallow={shallow}
-      locale={locale}
-    >
+      locale={locale}>
       <a {...rest}>{children}</a>
     </NextLink>
   );
@@ -81,7 +56,3 @@ export function Image(props: ImageProps): JSX.Element {
   const { src = '', ...rest } = props;
   return <NextImage src={src} {...rest} />;
 }
-
-/*
- * Icon
- */
