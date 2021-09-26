@@ -31,7 +31,7 @@ export default function HomeScreen(): JSX.Element {
   return (
     <Container maxWidth='xl'>
       {isRefreshing && (
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: '1rem' }}>
+        <Box display='flex' alignItems='center' justifyContent='center' mb='1rem'>
           <CircularProgress size={20} />
         </Box>
       )}
@@ -40,7 +40,7 @@ export default function HomeScreen(): JSX.Element {
       {data && <Box>Data</Box>}
       {error && <Box>Error</Box>}
 
-      <Stack direction='row' spacing={2} sx={{ mt: '1rem' }}>
+      <Stack direction='row' spacing={2} mt='1rem'>
         <Button variant='outlined' onClick={mutate} disabled={isRefreshing ? true : false}>
           {trans('txt_refresh')}
         </Button>
