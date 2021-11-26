@@ -1,24 +1,26 @@
 import React from 'react';
 import { useGetPostsApi } from '@apis/post/use-get-post-api';
-import { useCreatePostApi } from '@apis/post/use-create-post-api';
-import { useTrans } from '@hooks/use-trans';
-import { Container, Box, Button, Stack, Skeleton, CircularProgress } from '@mui/material';
+import { Container, Box, Button, Stack, Skeleton } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { useCreatePostApi } from '@apis/post/use-create-post';
 
 export default function HomeScreen(): JSX.Element {
-  const { data, error, mutate, isInitialLoading, isRefreshing } = useGetPostsApi();
-  const trans = useTrans();
+  const { t: trans } = useTranslation();
 
-  const create = async () => {
+  const { isLoading, data, error, refetch, isFetching } = useGetPostsApi();
+  const { mutate: createPost } = useCreatePostApi();
+
+  const create = () => {
     const postData = {
       title: 'foo',
       body: 'bar',
-      userId: 3,
+      userId: '3',
     };
 
-    await useCreatePostApi(postData);
+    createPost(postData);
   };
 
-  if (isInitialLoading) {
+  if (isLoading) {
     return (
       <Container maxWidth='xl'>
         <Skeleton />
@@ -30,18 +32,12 @@ export default function HomeScreen(): JSX.Element {
 
   return (
     <Container maxWidth='xl'>
-      {isRefreshing && (
-        <Box display='flex' alignItems='center' justifyContent='center' mb='1rem'>
-          <CircularProgress size={20} />
-        </Box>
-      )}
-
       <Box>{trans('test_language')}</Box>
       {data && <Box>Data</Box>}
       {error && <Box>Error</Box>}
 
       <Stack direction='row' spacing={2} mt='1rem'>
-        <Button variant='outlined' onClick={mutate} disabled={isRefreshing ? true : false}>
+        <Button variant='outlined' onClick={() => refetch()} disabled={isFetching}>
           {trans('txt_refresh')}
         </Button>
 

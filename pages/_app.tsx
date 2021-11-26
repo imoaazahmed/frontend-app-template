@@ -7,6 +7,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import theme from '../src/lib/theme';
 import createEmotionCache from '../src/lib/createEmotionCache';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 // Redux
 import store from '../src/redux/store';
@@ -17,6 +18,9 @@ import '../styles/globals.css';
 
 // Trans
 import '../src/lib/i18n';
+
+// Create a client
+const queryClient = new QueryClient();
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -37,16 +41,18 @@ function MyApp(props: MyAppProps): JSX.Element {
   }, [router.events]);
 
   return (
-    <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
+    <QueryClientProvider client={queryClient}>
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
 
-        <Provider store={store}>
-          <Component {...pageProps} />
-        </Provider>
-      </ThemeProvider>
-    </CacheProvider>
+          <Provider store={store}>
+            <Component {...pageProps} />
+          </Provider>
+        </ThemeProvider>
+      </CacheProvider>
+    </QueryClientProvider>
   );
 }
 

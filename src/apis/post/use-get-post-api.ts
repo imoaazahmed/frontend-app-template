@@ -1,15 +1,17 @@
-import { GetApiResponse } from '@apis/types';
-import { useFetchApiGet } from '@apis/use-fetch-api-get';
-import { AxiosRequestConfig } from 'axios';
-import { SWRConfiguration } from 'swr';
+import { useQueryWrapper } from '@apis/use-api-wrapper';
+import { UseQueryResult } from 'react-query';
+import http from '@services/http-service';
+import { AxiosResponse, AxiosError } from 'axios';
 
 // Endpoint
-const endpoint = '/posts';
+const endpoint = 'posts';
+
+const QueryFn = async () => {
+  const { data } = await http.get(endpoint);
+  return data;
+};
 
 // Get posts
-export function useGetPostsApi(): GetApiResponse {
-  const config: AxiosRequestConfig = {};
-  const options: SWRConfiguration = {};
-
-  return useFetchApiGet(endpoint, config, options);
+export function useGetPostsApi(): UseQueryResult<AxiosResponse, AxiosError> {
+  return useQueryWrapper(endpoint, QueryFn);
 }

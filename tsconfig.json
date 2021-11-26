@@ -37,7 +37,8 @@
       "@layouts/*": ["src/layouts/*"],
       "@apis/*": ["src/apis/*"],
       "@elements": ["src/components/elements"]
-    }
+    },
+    "incremental": true
   },
   "exclude": ["node_modules", "dist", ".next", "out", "next.config.js", "test"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"]

@@ -15,7 +15,6 @@ export default function createEmotionCache(): EmotionCache {
   // Create RTL cache
   const cacheRTL = createCache({
     key: 'muirtl',
-    // @ts-expect-error: rtlPlugin need to update the function output type to be string | void | any
     stylisPlugins: [rtlPlugin],
   });
 
