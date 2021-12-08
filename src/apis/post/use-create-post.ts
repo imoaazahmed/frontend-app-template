@@ -3,7 +3,6 @@ import { UseMutationResult } from 'react-query';
 import http from '@services/http-service';
 import { AxiosResponse, AxiosError } from 'axios';
 
-// Endpoint
 const endpoint = 'posts';
 
 interface BodyType {
@@ -17,7 +16,6 @@ const mutationFn = async (body: BodyType) => {
   return data;
 };
 
-// Get posts
 export function useCreatePostApi(): UseMutationResult<AxiosResponse, AxiosError, BodyType> {
   return useMutationWrapper(mutationFn, { mutationKey: endpoint });
 }

@@ -19,7 +19,7 @@ interface SectionProps {
 
 export function Section(props: SectionProps): JSX.Element {
   const { name, sections, children } = props;
-  let section = null;
+  let section;
 
   // Check if object
   if (_isPlainObject(sections)) {
@@ -33,7 +33,7 @@ export function Section(props: SectionProps): JSX.Element {
 
   // Check if a Section component
   if (section) {
-    const elementType = typeof section?.type === 'string' ? section?.type : section?.type?.name;
+    const elementType = typeof section?.type === 'string' ? section?.type : section?.type?.displayName;
 
     if (elementType !== 'Section') {
       throw new Error(
@@ -46,6 +46,8 @@ export function Section(props: SectionProps): JSX.Element {
 
   return <>{children}</>;
 }
+
+Section.displayName = 'Section';
 
 // Layout
 interface LayoutProps {
@@ -65,3 +67,5 @@ export function Layout(props: LayoutProps): JSX.Element {
       return <HeaderContentFooter sections={children} />;
   }
 }
+
+Layout.displayName = 'Layout';
