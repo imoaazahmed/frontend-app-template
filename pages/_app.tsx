@@ -8,6 +8,7 @@ import { CacheProvider, EmotionCache } from '@emotion/react';
 import theme from '../src/lib/theme';
 import createEmotionCache from '../src/lib/createEmotionCache';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 // Redux
 import store from '../src/redux/store';
@@ -52,6 +53,8 @@ function MyApp(props: MyAppProps): JSX.Element {
           </Provider>
         </ThemeProvider>
       </CacheProvider>
+
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }

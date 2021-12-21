@@ -19,7 +19,7 @@ interface SectionProps {
 
 export function Section(props: SectionProps): JSX.Element {
   const { name, sections, children } = props;
-  let section;
+  let section = null;
 
   // Check if object
   if (_isPlainObject(sections)) {
