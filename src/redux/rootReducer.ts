@@ -1,8 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
 // App Reducers
-import authReducer from '@redux/auth/reducer';
+import postsReducer from '@redux/posts/reducer';
 
 export default combineReducers({
-  auth: authReducer,
+  posts: postsReducer,
 });

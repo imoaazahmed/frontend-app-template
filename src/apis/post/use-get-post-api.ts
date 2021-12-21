@@ -1,15 +1,23 @@
-import { useQueryWrapper } from '@apis/use-api-wrapper';
-import { UseQueryResult } from 'react-query';
 import http from '@services/http-service';
-import { AxiosResponse, AxiosError } from 'axios';
+import { useQueryWrapper } from '@apis/use-api-wrapper';
+import { fetchPostsRequest, fetchPostsSuccess } from '@redux/posts/reducer';
+import { useAppDispatch } from '@redux/hooks';
+import type { UseQueryResult } from 'react-query';
+import type { AxiosResponse, AxiosError } from 'axios';
 
 const endpoint = 'posts';
 
-const QueryFn = async () => {
-  const { data } = await http.get(endpoint);
-  return data;
-};
+type ReturnType = UseQueryResult<AxiosResponse, AxiosError>;
 
-export function useGetPostsApi(): UseQueryResult<AxiosResponse, AxiosError> {
-  return useQueryWrapper(endpoint, QueryFn);
+export function useGetPostsApi(): ReturnType {
+  const dispatch = useAppDispatch();
+
+  const queryFn = async () => {
+    dispatch(fetchPostsRequest());
+    const { data } = await http.get(endpoint);
+    dispatch(fetchPostsSuccess(data));
+    return data;
+  };
+
+  return useQueryWrapper(endpoint, queryFn);
 }
