@@ -5,8 +5,8 @@
  * @description As you can see in the file we are using react-query for fetching data.
  * @access private
  *
- * @function useQueryWrapper This is the main function to be re-used outside of the file to call or fetch some data.
- * @function useMutationWrapper This is the main function to be re-used outside of the file to call or fetch some data.
+ * @function useQueryWrapper This is the main function to be re-used outside the file to call or fetch some data.
+ * @function useMutationWrapper This is the main function to be re-used outside the file to call or fetch some data.
  * @readonly Please don't make any changes to this file.
  */
 
@@ -50,7 +50,7 @@ export function useQueryWrapper<
 }
 
 /**
- * Unlike queries, mutations are typically used to create/update/delete data or perform server side-effects.
+ * Unlike queries, mutations are typically used to create/update/delete data or perform server side effects.
  * https://react-query.tanstack.com/guides/mutations
  *
  */
