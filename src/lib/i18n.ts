@@ -12,12 +12,12 @@ export enum Languages {
 }
 
 const resources = {
-    en_US: {
-        translation: EN_US,
-    },
-    ar_EG: {
-        translation: AR_EG,
-    },
+  en_US: {
+    translation: EN_US,
+  },
+  ar_EG: {
+    translation: AR_EG,
+  },
 };
 
 i18n
