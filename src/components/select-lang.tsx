@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import i18n from 'i18next';
 import { Languages } from '@lib/i18n';
 import { useCurrentLang } from '@hooks/use-current-lang';
@@ -13,17 +13,7 @@ export function SelectLanguage(): JSX.Element {
   const { en_US, ar_EG } = Languages;
   const router = useRouter();
 
-  // Get document object
-  useEffect(() => {
-    setDocument(document);
-  }, [_document]);
-
   // Set default value for [lang, dir] attribute in html tag
-  useEffect(() => {
-    if (currentLang === ar_EG) setHTMLTags('ar');
-    if (currentLang === en_US) setHTMLTags('en');
-  }, [_document]);
-
   const setHTMLTags = (key: 'ar' | 'en') => {
     if (key === 'ar') {
       htmlElement?.setAttribute('lang', 'ar');
@@ -36,15 +26,23 @@ export function SelectLanguage(): JSX.Element {
     }
   };
 
+  // Get document object & set default language
+  useEffect(() => {
+    setDocument(document);
+
+    if (currentLang === ar_EG) setHTMLTags('ar');
+    if (currentLang === en_US) setHTMLTags('en');
+  }, [_document]);
+
   const handleChange = (e: SelectChangeEvent) => {
     const { value } = e.target;
 
     if (value === ar_EG) {
-      i18n.changeLanguage(ar_EG);
+      i18n.changeLanguage(ar_EG).then(() => setHTMLTags('ar'));
     }
 
     if (value === en_US) {
-      i18n.changeLanguage(en_US);
+      i18n.changeLanguage(en_US).then(() => setHTMLTags('en'));
     }
 
     router.reload();

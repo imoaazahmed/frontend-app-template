@@ -51,7 +51,7 @@ Section.displayName = 'Section';
 
 // Layout
 interface LayoutProps {
-  type?: 'header_content_footer' | 'header_sider_content';
+  type?: 'header_content_footer' | 'header_side_content';
   children?: ReactNode;
 }
 
@@ -59,7 +59,7 @@ export function Layout(props: LayoutProps): JSX.Element {
   const { type, children } = props;
 
   switch (type) {
-    case 'header_sider_content':
+    case 'header_side_content':
       return <HeaderSiderContent sections={children} />;
 
     case 'header_content_footer':

@@ -11,25 +11,26 @@ export enum Languages {
   ar_EG = 'ar_EG',
 }
 
+const resources = {
+    en_US: {
+        translation: EN_US,
+    },
+    ar_EG: {
+        translation: AR_EG,
+    },
+};
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    resources,
     fallbackLng: Languages.en_US,
     debug: false,
     keySeparator: false,
 
     interpolation: {
       escapeValue: false,
-    },
-
-    resources: {
-      en_US: {
-        translation: EN_US,
-      },
-      ar_EG: {
-        translation: AR_EG,
-      },
     },
 
     detection: {
@@ -39,8 +40,8 @@ i18n
       // keys or params to lookup language from
       lookupQuerystring: 'lng',
       lookupCookie: 'i18next',
-      lookupLocalStorage: 'i18nextLng',
-      lookupSessionStorage: 'i18nextLng',
+      lookupLocalStorage: 'i18next',
+      lookupSessionStorage: 'i18next',
 
       // cache user language on
       caches: ['localStorage', 'cookie'],

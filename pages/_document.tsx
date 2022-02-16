@@ -1,6 +1,6 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { GA_TRACKING_ID } from '../src/lib/gtag';
+import { GA_TRACKING_ID } from '@lib/gtag';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache from '../src/lib/createEmotionCache';
 
