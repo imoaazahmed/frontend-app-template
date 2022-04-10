@@ -33,6 +33,7 @@ export default function HomeScreen(): JSX.Element {
 
   return (
     <Container maxWidth='xl'>
+      {isFetching && <Box mb={'16px'}>Refreshing...</Box> }
       <Box>{trans('test_language')}</Box>
       {data && <Box>Data</Box>}
       {error && <Box>Error</Box>}
