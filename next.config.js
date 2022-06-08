@@ -1,4 +1,7 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+
+const nextConfig = {
+  reactStrictMode: true,
   swcMinify: true,
   images: {
     domains: ['picsum.photos'],
@@ -17,4 +20,6 @@ module.exports = {
     // !! WARN !!
     ignoreBuildErrors: false,
   },
-};
+}
+
+module.exports = nextConfig

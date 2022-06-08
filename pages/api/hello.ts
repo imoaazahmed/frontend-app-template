@@ -1,9 +1,13 @@
 import { useCors } from '@hooks/use-cors';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function hello(req: NextApiRequest, res: NextApiResponse): Promise<void> {
+type TData = {
+  name: string
+}
+
+export default async function hello(req: NextApiRequest, res: NextApiResponse<TData>): Promise<void> {
   // Run cors
   await useCors(req, res);
 
-  res.status(200).json({ message: 'Hello' });
+  res.status(200).json({ name: 'John Doe' })
 }
