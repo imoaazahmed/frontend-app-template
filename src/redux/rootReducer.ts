@@ -1,8 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
 // App Reducers
-import postsReducer from '@redux/posts/reducer';
+import featureFlags from '@redux/feature-flags/reducer';
 
 export default combineReducers({
-  posts: postsReducer,
+  featureFlags: featureFlags,
 });

@@ -3,9 +3,12 @@
 .env
 .prettierignore
 .github
+.gitlab
 .eslintignore
 dist
 node_modules
 Dockerfile
 yarn.lock
 public
+package.json
+package-lock.json

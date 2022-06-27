@@ -2,13 +2,18 @@ import { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import * as gtag from '../src/lib/gtag';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import theme from '../src/lib/theme';
-import createEmotionCache from '../src/lib/createEmotionCache';
+
+// React query
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+
+// CASL
+import { AbilityContext } from '../src/configs/can';
+import { ability } from '../src/configs/ability';
+
+// Chakra UI
+import { ChakraProvider } from '@chakra-ui/react';
+import chakraTheme from '../src/theme';
 
 // Redux
 import store from '../src/redux/store';
@@ -21,17 +26,16 @@ import '../styles/globals.css';
 import '../src/lib/i18n';
 
 // Create a client
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
-// Client-side cache, shared for the whole session of the user in the browser.
-const clientSideEmotionCache = createEmotionCache();
-
-interface MyAppProps extends AppProps {
-  emotionCache?: EmotionCache;
-}
-
-function MyApp(props: MyAppProps): JSX.Element {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+function MyApp(props: AppProps): JSX.Element {
+  const { Component, pageProps } = props;
   const router = useRouter();
 
   // Google Analytics
@@ -42,20 +46,17 @@ function MyApp(props: MyAppProps): JSX.Element {
   }, [router.events]);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <CacheProvider value={emotionCache}>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-
+    <AbilityContext.Provider value={ability}>
+      <QueryClientProvider client={queryClient}>
+        <ChakraProvider theme={chakraTheme}>
           <Provider store={store}>
             <Component {...pageProps} />
           </Provider>
-        </ThemeProvider>
-      </CacheProvider>
+        </ChakraProvider>
 
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </AbilityContext.Provider>
   );
 }
 

@@ -34,8 +34,12 @@
       "@redux/*": ["src/redux/*"],
       "@screens/*": ["src/screens/*"],
       "@lib/*": ["src/lib/*"],
-      "@layouts/*": ["src/layouts/*"],
+      "@layout/*": ["src/layout/*"],
       "@apis/*": ["src/apis/*"],
+      "@theme/*": ["src/theme/*"],
+      "@designSystem/*": ["src/designSystem/*"],
+      "@configs/*": ["src/configs/*"],
+      "@icons/*": ["src/icons/*"],
       "@elements": ["src/components/elements"]
     },
     "incremental": true

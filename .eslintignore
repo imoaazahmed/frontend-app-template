@@ -7,4 +7,5 @@
 **/.vscode/*
 **/.husky/*
 **/.github/*
+**/.gitlab/*
 **/tailwind.config.js/*
