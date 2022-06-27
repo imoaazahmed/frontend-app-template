@@ -20,7 +20,8 @@ export const SiderHeaderContent = ({ sections }: LayoutProps) => {
         borderEnd={'2px solid'}
         borderColor={'#e6e7ef'}
         h={'100vh'}
-        overflowY={'auto'}>
+        overflowY={'auto'}
+      >
         <Section sections={sections} name='sider'>
           <Sidebar />
         </Section>
@@ -47,7 +48,8 @@ export const SiderHeaderContent = ({ sections }: LayoutProps) => {
           p={'40px'}
           h={`calc(100vh - ${headerHight}px)`}
           w={`calc(100vw - ${sidebarWidth}px)`}
-          overflowY={'auto'}>
+          overflowY={'auto'}
+        >
           <Section sections={sections} name='content' />
         </Box>
         {/* End Content */}

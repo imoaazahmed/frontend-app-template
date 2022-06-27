@@ -77,7 +77,8 @@ export const SidebarItem = ({ item }: ISidebarItem) => {
       borderRadius='base'
       bgColor={isActive ? 'brand.500' : 'white'}
       _hover={{ bgColor: isActive ? 'brand.500' : 'gray.100' }}
-      _active={{ bgColor: isActive ? 'brand.500' : 'gray.200' }}>
+      _active={{ bgColor: isActive ? 'brand.500' : 'gray.200' }}
+    >
       <ItemIcon name={item.name} marginEnd={'md'} fill={isActive ? 'white' : 'gray.500'} />
       <Text color={isActive ? 'white' : 'gray.500'} fontSize='md' fontWeight='medium' textTransform={'capitalize'}>
         {item.name}
